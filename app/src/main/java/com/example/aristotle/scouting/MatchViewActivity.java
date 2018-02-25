@@ -3,6 +3,7 @@ package com.example.aristotle.scouting;
 import android.content.Intent;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +34,7 @@ public class MatchViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matchview);
 
-        matches = new ArrayList<MatchInfo>();
+        matches = new ArrayList<>();
 
         setTitle("Match List");
 
@@ -125,6 +126,16 @@ public class MatchViewActivity extends AppCompatActivity {
             }
         });
 
+        matchesView.setOnItemLongClickListener(new android.widget.AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> m, View v, int pos, long i) {
+                matches.remove(pos);
+                Snackbar.make(v, "Match deleted", Snackbar.LENGTH_SHORT).show();
+                updateMatchView(true);
+                return true;
+            }
+        });
+
     }
 
     public void addNewMatch (String s) {
@@ -138,7 +149,6 @@ public class MatchViewActivity extends AppCompatActivity {
 
 
     public static void updateMatchView (boolean saveAndUpload) {
-
         matchListAdapter.clear();
         for (int i = 0; i < matches.size(); i++) {
             matchListAdapter.add(matches.get(i).getBlueTeamNumber() + " vs. " +  matches.get(i).getRedTeamNumber() + " at " + matches.get(i).getDateAndTimeCreated());

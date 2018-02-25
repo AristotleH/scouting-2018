@@ -40,7 +40,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/redTeam"
+                android:id="@+id/blueTeam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -49,7 +49,7 @@
                 android:maxLength="4"
                 android:text="2035"
                 android:textAlignment="center"
-                android:textColor="@android:color/holo_red_dark" />
+                android:textColor="@android:color/holo_blue_dark" />
 
             <TextView
                 android:id="@+id/versusText"
@@ -62,7 +62,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/blueTeam"
+                android:id="@+id/redTeam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -71,7 +71,7 @@
                 android:maxLength="4"
                 android:text="2035"
                 android:textAlignment="center"
-                android:textColor="@android:color/holo_blue_dark" />
+                android:textColor="@android:color/holo_red_dark" />
 
         </LinearLayout>
 
@@ -198,13 +198,13 @@
             android:gravity="center_vertical" >
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/createButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif"
-                android:onClick="submitMatch"
-                android:text="Submit" />
+                android:onClick="createMatch"
+                android:text="Create" />
 
         </LinearLayout>
 
